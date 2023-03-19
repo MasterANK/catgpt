@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CatGPT</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+</head>
+<body>
+    <div id="chat" class="chat">
+        <ul>
+        </ul>
+    </div>
+    <div class="footer">
+        <div class="button-wrapper">
+            <input class="text_feild" id="text" type="text" placeholder="Add new item">
+            <button class="button" id="sendbtn">
+                <img src="file:///D:/Python/catgpt/send_button.png" class="static_img" onerror="src='/send_button.png'">
+            </button>
+        </div>
+    </div>
+    <py-env>
+        -random
+    </py-env>
+    <py-script>
+from pyodide import create_proxy
+import random
+
+out = ["meow ","Meow ","meeow ","MEOW "]
+
+def on_add_click(event):
+    out_text = ""
+    times = random.randint(1,10)
+    for i in range(times):
+        out_text += random.choice(out)
+    input_new_item = document.querySelector("#text")
+
+    if input_new_item.value:
+        child = document.createElement("li") #user-input
+        child.innerText = input_new_item.value  
+        parent = document.querySelector("#chat ul")
+        parent.appendChild(child)
+
+        #catgpt
+        if child.innerText == "meow" or child.innerText == "Meow":
+            child = document.createElement("li")
+            child.innerText = "🙀"
+            parent = document.querySelector("#chat ul")
+            parent.appendChild(child)
+        elif child.innerText == "hello":
+            child = document.createElement("li")
+            child.innerText = "meow"
+            parent = document.querySelector("#chat ul")
+            parent.appendChild(child)
+        else:
+            child = document.createElement("li")
+            child.innerText = out_text
+            parent = document.querySelector("#chat ul")
+            parent.appendChild(child)
+
+        input_new_item.value = ""
+
+button = document.querySelector("#sendbtn")
+button.addEventListener("click", create_proxy(on_add_click))
+    </py-script>
+</body>
+</html>

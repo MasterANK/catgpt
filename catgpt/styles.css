@@ -1,0 +1,111 @@
+
+.footer {
+    border: 4px solid turquoise;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.button-wrapper {
+  background-color: #8e8ea0;
+    position: relative;
+  display: flex;
+  align-items: center; 
+  justify-content: flex-end;
+}
+.text_feild {
+  background-color: #8e8ea0;
+    outline: none;
+    box-sizing: border-box;
+    position: relative;
+    flex: 1;
+    box-sizing: border-box;
+    bottom: 0;
+    margin-left: 10px;
+    height: 100%;
+    width: 86%;
+  }
+  .text_feild::placeholder {
+    color: black;
+  }
+.button {
+    background-color: #4CAF50;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    display: flex;
+
+    position: relative;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 84px;
+    height: 50px;
+    margin-right: 1%;
+  }
+.button:hover {
+  background-color: white;
+  border: 0.5px solid black;
+  box-sizing: border-box;
+  color: black;
+  display: flex;
+
+  position: relative;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 84px;
+    height: 50px;
+    margin-right: 1%;
+}
+.button img {
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+ul li:nth-of-type(odd)::before {
+  content: "";
+  background-image: url('/default_profile.png'),url("file:///D:/Python/catgpt/default_profile.png");
+  background-repeat: no-repeat;
+  background-color: rgb(215, 215, 218);
+  background-size: contain;
+  display: inline-block;
+  align-items: center;
+  width: 40px; 
+  height: 40px;
+  margin-right: 5px;
+}
+ul li:nth-of-type(even)::before {
+  content: "";
+  background-image: url('/CatGPT_logo\ upscaled.png'),url("file:///D:/Python/catgpt/CatGPT_logo%20upscaled.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  align-items: center;
+  width: 40px; 
+  height: 40px;
+  margin-right: 5px;
+}
+ul li:nth-of-type(even) {
+  background-color: rgb(236,236,241);
+}
+.chat {
+  padding-bottom: 80px;
+}
+body {
+  background-color: rgb(215, 215, 218); 
+  height: 80vh; 
+  margin: 0;
+  padding: 0; 
+}
